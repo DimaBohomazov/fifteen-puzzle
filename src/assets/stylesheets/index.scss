@@ -1,0 +1,12 @@
+@import './normalize.css';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(90deg, #fff3f3, #f1f2f3);
+}

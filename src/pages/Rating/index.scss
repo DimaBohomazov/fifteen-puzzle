@@ -1,0 +1,36 @@
+.rating {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.rating-list-item{
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  font-size: 25px;
+  border-bottom: 1px solid #cacaca;
+  &__position {
+    width: 10%;
+  }
+  &__name {
+    width: 40%;
+  }
+  &__steps {
+    width: 25%;
+  }
+  &__attempts{
+    width: 25%;
+  }
+}
+.header-list {
+  font-weight: bolder;
+  border-bottom: 1px solid #000;
+}
+@media (max-width: 1200px) {
+  .rating-title{
+    font-size: calc(40px + 60*((100vw - 320px) / 1200));
+  }
+  .rating-list-item {
+    font-size: calc(16px + 22*((100vw - 320px) / 1200))
+  }
+}

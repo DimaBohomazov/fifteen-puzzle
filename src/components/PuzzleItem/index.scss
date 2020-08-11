@@ -1,0 +1,31 @@
+.puzzle__item {
+  width: 24%;
+  height: 24%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(17, 9, 9, 0.82);
+  border: 1px solid #000;
+  color: #f1f2f3;
+  border-radius: 10px;
+  cursor: default;
+  font-size: 30px;
+  transition: all 0.5s;
+}
+.clear {
+  background: none;
+  border: none;
+}
+.moved {
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+    border-color: #fff;
+    color: #eeb2b2;
+    font-size: 31px;
+  }
+  &:active{
+    background-color: #eeb2b2;
+    color: #000;
+  }
+}

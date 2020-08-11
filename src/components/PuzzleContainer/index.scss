@@ -1,0 +1,17 @@
+.puzzle__container {
+  width: 500px;
+  height: 500px;
+  padding: 3px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: rgba(163, 27, 200, 0.1);
+  border: 3px solid #000;
+  border-radius: 10px;
+  transition: all 1s;
+
+  &:hover {
+    border-color: rgba(21, 30, 95, 0.64);
+    box-shadow: 0 0 10px 2px rgba(255, 1, 1, 0.36);
+  }
+}

@@ -1,0 +1,9 @@
+
+@media (max-width: 1200px) {
+  .title {
+    font-size: calc(45px + 50*((100vw - 320px) / 1200));
+  }
+  .precept {
+    font-size: calc(25px + 60*((100vw - 320px) / 1200))
+  }
+}
