@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext, useCallback} from 'react'
+import React, {useEffect, useContext, useCallback} from 'react'
 import './index.scss'
 import {CurrentGameContext} from "../../contexts/currentGameContext";
 import PuzzleItem from "../PuzzleItem/PuzzleItem"
@@ -7,7 +7,6 @@ import PuzzleItem from "../PuzzleItem/PuzzleItem"
 const PuzzleContainer = () => {
   const [currentState, setCurrentState] = useContext(CurrentGameContext)
   const {win, counter, restart, puzzleNumbers, mixedPuzzleNumbers, puzzleCoordinates} = currentState
-  const [play, setPlay] = useState(false)
 
   const spliceInArray = (array, number) => {
     const emptyIndex = array.indexOf(16)
@@ -17,7 +16,7 @@ const PuzzleContainer = () => {
   }
 
   const moveNumbers = (number) => {
-    if (win || !play){
+    if (win){
       return
     }
     const arr = [...mixedPuzzleNumbers]
@@ -76,34 +75,20 @@ const PuzzleContainer = () => {
   }, [counter, mixedPuzzleNumbers, puzzleNumbers])
 
   useEffect(() => {
-    if(!counter){
-      setCurrentState(state => ({
-        ...state,
-        mixedPuzzleNumbers: [...puzzleNumbers]
-      }))
-    } else {
-      setPlay(true)
-    }
-  }, [puzzleNumbers,setCurrentState, counter])
-
-  useEffect(() => {
     if (winnerValidation()) {
       setCurrentState (state => ({
         ...state,
         win: true
       }))
-      setPlay(false)
       console.log('win')
     }
   }, [setCurrentState, winnerValidation])
 
   useEffect(() => {
-      if(restart && !counter) {
+      if(!counter) {
         mixingNumbers()
-        setPlay(true)
       }
-    // eslint-disable-next-line
-  }, [restart, counter])
+  }, [counter, restart, mixingNumbers])
 
   return (
     <div className='container d-flex justify-content-center mt-4 position-relative'>
@@ -116,23 +101,9 @@ const PuzzleContainer = () => {
             number={number}
             move={()=>moveNumbers(number)}
             valid={moveValidation(number)}
-            play={play}
           />
         ))}
       </ul>
-      {
-        !play &&
-        <button
-          className='btn btn-lg btn-light puzzle__button'
-          onClick={(e) => {
-            mixingNumbers()
-            setPlay(true)
-          }}
-        >
-          Play
-        </button>
-      }
-
     </div>
   );
 };

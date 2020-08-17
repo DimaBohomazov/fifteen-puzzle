@@ -24,7 +24,7 @@ export const CurrentGameProvider = ({children}) => {
     restart: 0,
     puzzleCoordinates,
     puzzleNumbers,
-    mixedPuzzleNumbers: []
+    mixedPuzzleNumbers: [...puzzleNumbers]
   })
   return (
     <CurrentGameContext.Provider value={[state, setState]} >

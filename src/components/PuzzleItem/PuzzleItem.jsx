@@ -6,11 +6,7 @@ const PuzzleItem = ({number, move, valid, play}) => {
     ? (<li className='puzzle__item clear'/>)
     : (
       <li
-        className={`
-                  puzzle__item 
-                  ${valid ? 'moved' : ''}
-                  ${play ? '' : 'disabled'}`
-        }
+        className={`puzzle__item ${valid ? 'moved' : ''}`}
         onClick={move}>
         {number}
       </li>

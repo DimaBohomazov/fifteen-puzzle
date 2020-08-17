@@ -30,19 +30,3 @@
   }
 }
 
-.disabled {
-  opacity: .5;
-  cursor: default;
-  &:hover {
-    background-color: rgba(17, 9, 9, 0.82);
-    border: 1px solid #000;
-    color: #f1f2f3;
-    opacity: .5;
-  }
-  &:active {
-    background-color: rgba(17, 9, 9, 0.82);
-    border: 1px solid #000;
-    color: #f1f2f3;
-    opacity: .5;
-  }
-}
