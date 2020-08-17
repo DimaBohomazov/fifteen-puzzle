@@ -19,13 +19,8 @@ const Rating = () => {
       console.log(e)
     }
   }
-  const sortUsers = () => {
-    const arr = userList.map(e => e.counter)
-      .sort((a, b) => a - b)
-      .map(item => userList.filter(e => item === e.counter ))
-      .map(e => e[0])
-    return arr
-  }
+
+  const sortUsers = userList.sort((a, b) => a.counter - b.counter)
 
   useEffect(() => {
     getUsers()
@@ -57,7 +52,7 @@ const Rating = () => {
           {
             userList.length === 0
             ? <Loader />
-            : sortUsers().map((e, index) => (
+            : sortUsers.map((e, index) => (
                   <RatingItem
                     key={e.id}
                     position={index + 1}
